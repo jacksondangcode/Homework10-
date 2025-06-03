@@ -27,7 +27,6 @@ public class FindIntervalInArray {
 		int shortestFragmentLength = A.length + 1;
 
 		for (int right = 0; right < A.length; right++) {
-			// Expand window
 			if (A[right] >= L && A[right] <= R) {
 				int idx = A[right] - L;
 				if (count[idx] == 0) {
@@ -36,7 +35,6 @@ public class FindIntervalInArray {
 				count[idx]++;
 			}
 
-			// Contract window
 			for (; uniqueCount == R - L + 1; left++) {
 				shortestFragmentLength = Math.min(shortestFragmentLength, right - left + 1);
 				if (A[left] >= L && A[left] <= R) {
